@@ -1,0 +1,1802 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="個人起業家・フリーランスのためのAIスキル集。コピーして貼るだけで使えます。">
+<meta property="og:title" content="はじめてのAIスキル集">
+<meta property="og:description" content="仕事の手順を、AIに覚えさせておく。全7種類。">
+<meta property="og:type" content="article">
+<title>はじめてのAIスキル集</title>
+<style>
+  :root {
+    --paper: #FBFAF7;
+    --paper-raised: #FFFFFF;
+    --ink: #1B2A3D;
+    --ink-soft: #56657C;
+    --ink-faint: #8593A6;
+    --rule: #DFDACF;
+    --rule-strong: #C6BFB1;
+    --accent: #B0402F;
+    --accent-wash: #F6EAE6;
+    --shadow: 0 1px 2px rgba(27, 42, 61, .06), 0 8px 24px rgba(27, 42, 61, .05);
+
+    --font-display: "Hiragino Mincho ProN", "Yu Mincho", YuMincho, "Noto Serif JP", "Times New Roman", serif;
+    --font-body: "Hiragino Sans", "Yu Gothic", YuGothic, "Noto Sans JP", "Helvetica Neue", Arial, sans-serif;
+    --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+
+    --measure: 42rem;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #131A24;
+      --paper-raised: #1A2331;
+      --ink: #E7E3DA;
+      --ink-soft: #A3AEBD;
+      --ink-faint: #74808F;
+      --rule: #2B3745;
+      --rule-strong: #3D4A5A;
+      --accent: #E28067;
+      --accent-wash: #2A1E1B;
+      --shadow: 0 1px 2px rgba(0, 0, 0, .3), 0 8px 24px rgba(0, 0, 0, .22);
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --paper: #131A24;
+    --paper-raised: #1A2331;
+    --ink: #E7E3DA;
+    --ink-soft: #A3AEBD;
+    --ink-faint: #74808F;
+    --rule: #2B3745;
+    --rule-strong: #3D4A5A;
+    --accent: #E28067;
+    --accent-wash: #2A1E1B;
+    --shadow: 0 1px 2px rgba(0, 0, 0, .3), 0 8px 24px rgba(0, 0, 0, .22);
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--font-body);
+    font-size: 16.5px;
+    line-height: 1.95;
+    -webkit-font-smoothing: antialiased;
+    text-size-adjust: 100%;
+  }
+
+  .sheet {
+    max-width: var(--measure);
+    margin: 0 auto;
+    padding: 0 1.5rem 6rem;
+  }
+
+  /* ---------- 表紙 ---------- */
+
+  .cover {
+    padding: 4.5rem 0 3rem;
+    border-bottom: 1px solid var(--rule);
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .cover-mark {
+    display: flex;
+    align-items: center;
+    gap: .85rem;
+    font-size: .72rem;
+    letter-spacing: .22em;
+    color: var(--ink-faint);
+  }
+
+  .cover-mark::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: var(--rule);
+  }
+
+  .cover h1 {
+    font-family: var(--font-display);
+    font-size: clamp(2.1rem, 7vw, 3.05rem);
+    font-weight: 600;
+    line-height: 1.42;
+    letter-spacing: .02em;
+    margin: 0;
+    text-wrap: balance;
+  }
+
+  .cover h1 .sub {
+    display: block;
+    font-size: clamp(1rem, 3.4vw, 1.28rem);
+    color: var(--ink-soft);
+    margin-top: .9rem;
+    letter-spacing: .06em;
+  }
+
+  .cover-lede {
+    color: var(--ink-soft);
+    margin: 0;
+    max-width: 34rem;
+  }
+
+  .cover-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5rem .75rem;
+    font-size: .8rem;
+    color: var(--ink-faint);
+    font-family: var(--font-mono);
+  }
+
+  .cover-meta span {
+    border: 1px solid var(--rule);
+    padding: .25rem .7rem;
+    border-radius: 2px;
+  }
+
+  /* ---------- 目次 ---------- */
+
+  .toc {
+    margin: 2.75rem 0 0;
+    padding: 1.5rem 1.6rem;
+    background: var(--paper-raised);
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+  }
+
+  .toc h2 {
+    font-family: var(--font-body);
+    font-size: .72rem;
+    letter-spacing: .2em;
+    color: var(--ink-faint);
+    margin: 0 0 .9rem;
+    font-weight: 600;
+  }
+
+  .toc ol {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    gap: .45rem;
+    counter-reset: toc;
+  }
+
+  .toc a {
+    color: var(--ink);
+    text-decoration: none;
+    display: flex;
+    gap: .8rem;
+    align-items: baseline;
+    padding: .12rem 0;
+    border-bottom: 1px solid transparent;
+  }
+
+  .toc a::before {
+    counter-increment: toc;
+    content: counter(toc, decimal-leading-zero);
+    font-family: var(--font-mono);
+    font-size: .74rem;
+    color: var(--accent);
+    flex: none;
+  }
+
+  .toc a:hover,
+  .toc a:focus-visible {
+    border-bottom-color: var(--rule-strong);
+  }
+
+  /* ---------- セクション ---------- */
+
+  section { padding-top: 3.4rem; }
+
+  h2.section {
+    font-family: var(--font-display);
+    font-size: clamp(1.35rem, 4.4vw, 1.72rem);
+    font-weight: 600;
+    line-height: 1.55;
+    letter-spacing: .03em;
+    margin: 0 0 1.4rem;
+    padding-left: .95rem;
+    border-left: 3px solid var(--accent);
+    text-wrap: balance;
+  }
+
+  h3 {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: .04em;
+    margin: 2.4rem 0 .9rem;
+    color: var(--ink);
+  }
+
+  p { margin: 0 0 1.15rem; }
+  p:last-child { margin-bottom: 0; }
+
+  strong { font-weight: 700; }
+
+  a { color: var(--accent); }
+
+  /* ---------- 表 ---------- */
+
+  .table-wrap {
+    overflow-x: auto;
+    margin: 1.5rem 0;
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    background: var(--paper-raised);
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: .92rem;
+    line-height: 1.75;
+  }
+
+  th, td {
+    text-align: left;
+    padding: .8rem 1rem;
+    border-bottom: 1px solid var(--rule);
+    vertical-align: top;
+  }
+
+  thead th {
+    font-size: .72rem;
+    letter-spacing: .14em;
+    color: var(--ink-faint);
+    font-weight: 600;
+    background: transparent;
+    border-bottom: 1px solid var(--rule-strong);
+    white-space: nowrap;
+  }
+
+  tbody tr:last-child th,
+  tbody tr:last-child td { border-bottom: none; }
+
+  td.name {
+    font-family: var(--font-mono);
+    font-size: .82rem;
+    color: var(--ink);
+    white-space: nowrap;
+  }
+
+  td.yes { color: var(--accent); white-space: nowrap; }
+
+  /* ---------- 手順 ---------- */
+
+  .steps {
+    list-style: none;
+    counter-reset: step;
+    margin: 1.5rem 0;
+    padding: 0;
+    display: grid;
+    gap: 1.6rem;
+  }
+
+  .steps > li {
+    display: grid;
+    grid-template-columns: 2.2rem 1fr;
+    gap: 0 .95rem;
+    align-items: start;
+  }
+
+  .steps > li::before {
+    counter-increment: step;
+    content: counter(step);
+    font-family: var(--font-display);
+    font-size: 1.32rem;
+    line-height: 1.5;
+    color: var(--accent);
+    text-align: center;
+    border-bottom: 1px solid var(--rule-strong);
+    padding-bottom: .15rem;
+  }
+
+  .steps h4 {
+    margin: 0 0 .3rem;
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1.6;
+  }
+
+  .steps p { margin: 0 0 .7rem; }
+  .steps > li > div > :last-child { margin-bottom: 0; }
+
+  /* ---------- コマンド・引用 ---------- */
+
+  .cmd {
+    font-family: var(--font-mono);
+    font-size: .82rem;
+    line-height: 1.8;
+    background: var(--paper-raised);
+    border: 1px solid var(--rule);
+    border-left: 3px solid var(--rule-strong);
+    border-radius: 2px;
+    padding: .85rem 1rem;
+    margin: .9rem 0 1.2rem;
+    overflow-x: auto;
+    white-space: pre;
+    color: var(--ink);
+  }
+
+  .say {
+    font-family: var(--font-body);
+    font-size: .95rem;
+    background: var(--paper-raised);
+    border: 1px solid var(--rule);
+    border-left: 3px solid var(--rule-strong);
+    border-radius: 2px;
+    padding: .8rem 1rem;
+    margin: .9rem 0 1.2rem;
+    color: var(--ink);
+  }
+
+  /* ---------- 注意 ---------- */
+
+  .note {
+    border-left: 3px solid var(--accent);
+    background: var(--accent-wash);
+    padding: 1rem 1.15rem;
+    margin: 1.5rem 0;
+    border-radius: 0 3px 3px 0;
+    font-size: .95rem;
+  }
+
+  .note p { margin-bottom: .6rem; }
+  .note p:last-child { margin-bottom: 0; }
+
+  .note-label {
+    display: block;
+    font-size: .7rem;
+    letter-spacing: .18em;
+    color: var(--accent);
+    font-weight: 700;
+    margin-bottom: .45rem;
+  }
+
+  /* ---------- 例 ---------- */
+
+  .example {
+    display: grid;
+    gap: 1.2rem;
+    margin: 1.5rem 0;
+  }
+
+  .example-block {
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    background: var(--paper-raised);
+    overflow: hidden;
+  }
+
+  .example-head {
+    font-size: .72rem;
+    letter-spacing: .16em;
+    color: var(--ink-faint);
+    font-weight: 600;
+    padding: .6rem 1rem;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .example-body {
+    padding: 1rem;
+    font-size: .92rem;
+    line-height: 1.85;
+  }
+
+  .example-body ul {
+    margin: 0;
+    padding-left: 1.1rem;
+  }
+
+  .example-body ul li { margin-bottom: .25rem; }
+  .example-body ul li:last-child { margin-bottom: 0; }
+
+  .out-group { margin-bottom: 1rem; }
+  .out-group:last-child { margin-bottom: 0; }
+
+  .out-group h5 {
+    margin: 0 0 .3rem;
+    font-size: .82rem;
+    font-weight: 700;
+    letter-spacing: .06em;
+    color: var(--accent);
+  }
+
+  /* ---------- FAQ ---------- */
+
+  .faq {
+    display: grid;
+    gap: 0;
+    margin-top: 1.4rem;
+    border-top: 1px solid var(--rule);
+  }
+
+  .faq details {
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .faq summary {
+    cursor: pointer;
+    padding: 1rem .5rem 1rem 1.8rem;
+    font-weight: 700;
+    font-size: .96rem;
+    line-height: 1.7;
+    position: relative;
+    list-style: none;
+  }
+
+  .faq summary::-webkit-details-marker { display: none; }
+
+  .faq summary::before {
+    content: "Q";
+    position: absolute;
+    left: .2rem;
+    top: 1rem;
+    font-family: var(--font-display);
+    color: var(--accent);
+    font-size: .95rem;
+  }
+
+  .faq summary:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: -2px;
+  }
+
+  .faq .answer {
+    padding: 0 .5rem 1.15rem 1.8rem;
+    font-size: .95rem;
+    color: var(--ink-soft);
+  }
+
+  .faq .answer p:last-child { margin-bottom: 0; }
+
+  /* ---------- 末尾 ---------- */
+
+  .colophon {
+    margin-top: 4rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--rule);
+    font-size: .82rem;
+    color: var(--ink-faint);
+    display: flex;
+    flex-wrap: wrap;
+    gap: .4rem 1.5rem;
+    justify-content: space-between;
+  }
+
+  code {
+    font-family: var(--font-mono);
+    font-size: .86em;
+    background: var(--accent-wash);
+    padding: .1em .35em;
+    border-radius: 2px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { animation: none !important; transition: none !important; }
+  }
+
+  @media print {
+    body { background: #fff; color: #000; font-size: 10.5pt; }
+    .toc, .cover-meta { display: none; }
+    section { page-break-inside: avoid; padding-top: 1.5rem; }
+    .faq details { open: true; }
+  }
+
+  /* ---------- 3ステップ ---------- */
+
+  .quickstart {
+    display: grid;
+    gap: 1.1rem;
+    margin: 1.6rem 0 0;
+    counter-reset: qs;
+    list-style: none;
+    padding: 0;
+  }
+
+  .quickstart > li {
+    display: grid;
+    grid-template-columns: 2.6rem 1fr;
+    gap: 0 1rem;
+    align-items: start;
+    padding: 1.05rem 1.2rem 1.05rem .9rem;
+    background: var(--paper-raised);
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+  }
+
+  .quickstart > li::before {
+    counter-increment: qs;
+    content: counter(qs);
+    font-family: var(--font-display);
+    font-size: 1.6rem;
+    line-height: 1.3;
+    color: var(--accent);
+    text-align: center;
+  }
+
+  .quickstart strong {
+    display: block;
+    font-size: 1.02rem;
+    line-height: 1.65;
+    margin-bottom: .25rem;
+  }
+
+  .quickstart span {
+    font-size: .9rem;
+    color: var(--ink-soft);
+    line-height: 1.8;
+  }
+
+  /* ---------- スキル一覧 ---------- */
+
+  .skill-list {
+    display: grid;
+    gap: 1rem;
+    margin: 1.7rem 0 0;
+  }
+
+  .skill-item {
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    background: var(--paper-raised);
+    overflow: hidden;
+  }
+
+  .skill-head {
+    padding: 1.15rem 1.25rem;
+    display: grid;
+    gap: .45rem;
+  }
+
+  .skill-title {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: .03em;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .skill-desc {
+    font-size: .9rem;
+    color: var(--ink-soft);
+    line-height: 1.85;
+    margin: 0;
+  }
+
+  .skill-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: .55rem .9rem;
+    margin-top: .35rem;
+  }
+
+  .copy-btn {
+    font-family: var(--font-body);
+    font-size: .87rem;
+    font-weight: 700;
+    letter-spacing: .06em;
+    color: var(--paper);
+    background: var(--accent);
+    border: 1px solid var(--accent);
+    border-radius: 2px;
+    padding: .52rem 1.25rem;
+    cursor: pointer;
+    line-height: 1.5;
+  }
+
+  .copy-btn:hover { opacity: .87; }
+
+  .copy-btn:focus-visible {
+    outline: 2px solid var(--ink);
+    outline-offset: 2px;
+  }
+
+  .copy-btn[data-done="1"] {
+    background: transparent;
+    color: var(--ink-soft);
+    border-color: var(--rule-strong);
+  }
+
+  .copy-status {
+    font-size: .82rem;
+    color: var(--accent);
+    font-weight: 700;
+  }
+
+  .peek {
+    border-top: 1px solid var(--rule);
+    font-size: .85rem;
+  }
+
+  .peek summary {
+    cursor: pointer;
+    padding: .7rem 1.25rem;
+    color: var(--ink-soft);
+    list-style: none;
+    position: relative;
+    padding-left: 2.1rem;
+  }
+
+  .peek summary::-webkit-details-marker { display: none; }
+
+  .peek summary::before {
+    content: "＋";
+    position: absolute;
+    left: 1.25rem;
+    color: var(--ink-faint);
+  }
+
+  .peek[open] summary::before { content: "－"; }
+
+  .peek summary:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: -2px;
+  }
+
+  .skill-src {
+    font-family: var(--font-mono);
+    font-size: .73rem;
+    line-height: 1.8;
+    white-space: pre-wrap;
+    word-break: break-word;
+    background: var(--paper);
+    border-top: 1px solid var(--rule);
+    margin: 0;
+    padding: 1.1rem 1.25rem;
+    max-height: 24rem;
+    overflow-y: auto;
+    color: var(--ink-soft);
+  }
+
+  .aside-note {
+    font-size: .88rem;
+    color: var(--ink-soft);
+    border-left: 2px solid var(--rule-strong);
+    padding-left: 1rem;
+    margin: 1.3rem 0;
+  }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <header class="cover">
+    <div class="cover-mark">特典ガイド</div>
+    <h1>はじめてのAIスキル集
+      <span class="sub">仕事の手順を、AIに覚えさせておく</span>
+    </h1>
+    <p class="cover-lede">
+      毎回おなじ指示を書かなくても、「このメモ整理して」の一言で仕上がるようになります。
+      ダウンロードも、むずかしい設定もいりません。コピーして貼るだけです。
+    </p>
+    <div class="cover-meta">
+      <span>全7種類</span>
+      <span>ChatGPT / Claude 対応</span>
+      <span>MIT</span>
+    </div>
+  </header>
+
+  <nav class="toc" aria-label="目次">
+    <h2>もくじ</h2>
+    <ol>
+      <li><a href="#about">このガイドについて</a></li>
+      <li><a href="#start">使い方は3ステップ</a></li>
+      <li><a href="#skills">スキル一覧（ここからコピー）</a></li>
+      <li><a href="#try">やってみましょう</a></li>
+      <li><a href="#register">毎回貼るのが面倒になったら</a></li>
+      <li><a href="#advanced">パソコンに詳しい方へ</a></li>
+      <li><a href="#faq">よくある質問</a></li>
+      <li><a href="#trouble">うまくいかないときは</a></li>
+    </ol>
+  </nav>
+
+  <section id="about">
+    <h2 class="section">このガイドについて</h2>
+    <p>
+      この特典は、AIに「この仕事はこう進めてね」という<strong>手順書を覚えさせておく</strong>ためのものです。
+    </p>
+    <p>
+      たとえば打ち合わせのメモを渡すと、決まったこと・やること・保留に分けて整理してくれます。
+      毎回長い指示を書く必要がなくなります。
+    </p>
+    <p class="aside-note">
+      使うのは、ふだんお使いのChatGPTやClaudeで大丈夫です。
+      新しくアプリを入れたり、会員登録をしたりする必要はありません。
+    </p>
+  </section>
+
+  <section id="start">
+    <h2 class="section">使い方は3ステップ</h2>
+    <ol class="quickstart">
+      <li>
+        <div>
+          <strong>下の一覧から「コピーする」を押す</strong>
+          <span>使いたいものを1つ選んでください。ボタンを押すと、手順書がまるごとコピーされます。</span>
+        </div>
+      </li>
+      <li>
+        <div>
+          <strong>ChatGPTに貼り付けて、送信する</strong>
+          <span>新しい会話を開いて、貼り付けてください。「準備できました」といった返事が返ってきます。</span>
+        </div>
+      </li>
+      <li>
+        <div>
+          <strong>つづけて、自分のメモを貼る</strong>
+          <span>整理したいメモや文章を、そのまま貼り付けてください。これだけです。</span>
+        </div>
+      </li>
+    </ol>
+  </section>
+
+  <section id="skills">
+    <h2 class="section">スキル一覧（ここからコピー）</h2>
+    <p>
+      使いたいものの「コピーする」を押してください。中身を確認したい場合は「中身を見る」から開けます。
+    </p>
+
+    <div class="skill-list">
+      <article class="skill-item">
+        <div class="skill-head">
+          <h3 class="skill-title">打ち合わせメモを整理する</h3>
+          <p class="skill-desc">走り書きや録音の文字起こしを、「決まったこと」「やること」「保留」「確認が必要なこと」の4つに分けます。</p>
+          <div class="skill-actions">
+            <button class="copy-btn" type="button" data-target="src1">コピーする</button>
+            <span class="copy-status" id="status1" role="status" aria-live="polite"></span>
+          </div>
+        </div>
+        <details class="peek">
+          <summary>中身を見る</summary>
+          <pre class="skill-src" id="src1">---
+name: meeting-notes-to-actions
+description: 打ち合わせのメモ・議事録・文字起こしから、決定事項とアクションアイテムを抜き出して整理する。「議事録をまとめて」「打ち合わせメモを整理して」「この文字起こしからやることを出して」「ミーティングの内容を整理して」「宿題を洗い出して」といった依頼で使う。
+---
+
+# 打ち合わせメモ → やることリスト
+
+## このスキルでできること
+
+打ち合わせの走り書き、議事録、録音の文字起こしを渡すと、
+**「決まったこと」「やること」「保留」「確認が必要なこと」**の4つに整理して返します。
+
+箇条書きでも、崩れた文章でも、長い文字起こしでもかまいません。
+
+## 使い方
+
+メモを貼り付けて、こう伝えるだけです。
+
+```
+このメモを整理して
+```
+
+## 手順
+
+1. 渡されたメモを最後まで読む
+2. 内容を4つに分類する（分類の基準は下記）
+3. 「やること」については、担当者と期限が書かれているか確認する
+4. 決められた出力形式で返す
+
+### 分類の基準
+
+| 分類 | 入れるもの |
+|---|---|
+| 決まったこと | その場で結論が出たもの。方針、金額、日程、選んだ案など |
+| やること | 誰かが動く必要があるもの。次のアクションが発生するもの |
+| 保留 | 話には出たが結論が出ず、次回以降に持ち越されたもの |
+| 確認が必要なこと | メモの記述が曖昧で、書き手に聞かないと確定できないもの |
+
+## 最重要のルール
+
+**メモに書かれていないことを、絶対に補わない。**
+
+議事録は後から「言った・言わない」の根拠になる書類です。
+それらしく埋めると、書類として使えなくなります。
+
+- 担当者が書かれていない → `担当：未定` と書く。参加者から推測しない
+- 期限が書かれていない → `期限：未定` と書く。「来週まで」などと補わない
+- 結論が曖昧 → 「決まったこと」に入れず、「確認が必要なこと」に回す
+
+判断に迷ったら、勝手に決めずに「確認が必要なこと」へ入れてください。
+
+## 出力形式
+
+```markdown
+## 決まったこと
+- （結論を1行ずつ）
+
+## やること
+| 内容 | 担当 | 期限 |
+|---|---|---|
+| （やること） | （担当者名／未定） | （期限／未定） |
+
+## 保留・次回持ち越し
+- （持ち越した論点）
+
+## 確認が必要なこと
+- （メモだけでは判断できなかった点）
+```
+
+該当する項目がない見出しは、空欄にせず見出しごと省いてください。
+
+## 例
+
+**入力されたメモ：**
+
+```
+田中さんとの打ち合わせ
+・新サイトの公開は来月アタマで合意
+・トップの写真、差し替えたいと言われた→誰が用意する？
+・料金プラン、3つに増やす案が出たけど保留
+・請求書の宛名、法人名でいいか要確認
+```
+
+**出力：**
+
+```markdown
+## 決まったこと
+- 新サイトの公開時期は来月頭とする
+
+## やること
+| 内容 | 担当 | 期限 |
+|---|---|---|
+| トップページの写真を差し替える | 未定 | 未定 |
+
+## 保留・次回持ち越し
+- 料金プランを3つに増やす案
+
+## 確認が必要なこと
+- トップ写真の素材を用意するのはどちらか
+- 請求書の宛名を法人名にしてよいか
+```
+
+写真の担当者はメモに書かれていないため「未定」とし、
+「田中さんが用意する」とは推測していない点に注目してください。
+
+## うまく使うコツ
+
+- 文字起こしをそのまま貼っても動きます。整形してから渡す必要はありません
+- 複数回の打ち合わせ分をまとめて貼ると、混ざります。1回分ずつ渡してください
+- 出てきた「確認が必要なこと」は、そのまま相手への確認メールの材料になります
+</pre>
+        </details>
+      </article>
+      <article class="skill-item">
+        <div class="skill-head">
+          <h3 class="skill-title">記事をSNS・メルマガに転用する</h3>
+          <p class="skill-desc">一本の記事から、X・Instagram・メルマガそれぞれに合った形を作ります。</p>
+          <div class="skill-actions">
+            <button class="copy-btn" type="button" data-target="src2">コピーする</button>
+            <span class="copy-status" id="status2" role="status" aria-live="polite"></span>
+          </div>
+        </div>
+        <details class="peek">
+          <summary>中身を見る</summary>
+          <pre class="skill-src" id="src2">---
+name: content-repurposing
+description: ブログ記事・note・メルマガ・動画の台本など長い文章を、SNS投稿やメールに転用する。「この記事をX用にして」「SNS投稿にして」「メルマガに転用して」「投稿用に短くして」「この内容を別の形でも使いたい」といった依頼で使う。
+---
+
+# 長い文章 → SNS投稿・メルマガに転用
+
+## このスキルでできること
+
+一度書いた記事や台本を渡すと、**X（旧Twitter）・Instagram/Facebook・メルマガ**の
+それぞれに合わせた形に書き直します。
+
+一本の記事を書いたら、そこから複数の発信ネタが取れます。
+
+## 使い方
+
+元の文章を貼り付けて、こう伝えます。
+
+```
+これをSNS投稿に転用して
+```
+
+媒体を指定することもできます。
+
+```
+これをメルマガにして
+```
+
+## 手順
+
+1. 元の文章を最後まで読み、**一番伝えたいこと（核）**を1つ特定する
+2. 指定された媒体（指定がなければ3媒体すべて）に合わせて書き直す
+3. 各媒体の形式に沿って出力する
+
+## 最重要のルール
+
+**元の文章にないことを足さない。**
+
+転用は「言い換え」であって「創作」ではありません。
+特に次のものを勝手に作らないでください。
+
+- 数字（「3人が」「2週間で」など、元にない具体値）
+- 実績や事例
+- 元の主張より強い断定（「〜だと思う」→「〜です」への変換）
+
+短くする過程で情報は削れますが、**足すことは絶対にしない**でください。
+
+## 媒体ごとの書き分け
+
+| 媒体 | 長さの目安 | 書き方 |
+|---|---|---|
+| X | 140字前後 | 1投稿に1メッセージだけ。改行を多めに |
+| Instagram / Facebook | 300〜500字 | 語りかける調子。冒頭2行で内容がわかるように |
+| メルマガ | 800〜1500字 | 件名を必ず付ける。1つの話題を最後まで展開する |
+
+どの媒体でも、**1本に詰め込むメッセージは1つ**にしてください。
+元の記事に論点が3つあるなら、3本に分けます。
+
+## 出力形式
+
+```markdown
+## この文章の核
+（一番伝えたいこと。1行）
+
+## X 投稿案
+（3案。それぞれ独立して読めるもの）
+
+## Instagram / Facebook 投稿案
+（1案）
+
+## メルマガ案
+件名：（20字前後）
+
+（本文）
+```
+
+媒体を指定された場合は、その媒体だけを出力してください。
+
+## 例
+
+**入力：** 「打ち合わせの議事録は、その場で書くべき」という趣旨の1500字の記事
+
+**出力（X案の1つ）：**
+
+```
+議事録を後で書こうとすると、
+だいたい書けません。
+
+記憶が薄れるからではなく、
+「何が決まったか」の判断が
+後になるほど難しくなるからです。
+
+その場で書けば、
+曖昧な点をその場で聞けます。
+```
+
+元記事にあった主張だけで構成し、数字や事例は足していません。
+
+## うまく使うコツ
+
+- 動画の文字起こしをそのまま渡しても使えます
+- 「この部分だけ使って」と範囲を指定すると精度が上がります
+- 出てきた案をそのまま投稿せず、自分の言い回しに直してから使うと自然になります
+- 元の記事が長い場合、論点ごとに分けて渡すと、それぞれ違う投稿が取れます
+</pre>
+        </details>
+      </article>
+      <article class="skill-item">
+        <div class="skill-head">
+          <h3 class="skill-title">アンケート・お客様の声を整理する</h3>
+          <p class="skill-desc">バラバラの回答を、お客様の言葉そのままで、満足点・不満点・要望に分類します。</p>
+          <div class="skill-actions">
+            <button class="copy-btn" type="button" data-target="src3">コピーする</button>
+            <span class="copy-status" id="status3" role="status" aria-live="polite"></span>
+          </div>
+        </div>
+        <details class="peek">
+          <summary>中身を見る</summary>
+          <pre class="skill-src" id="src3">---
+name: feedback-organizer
+description: アンケートの回答、お客様の声、レビュー、感想メールをまとめて整理・分類する。「アンケートまとめて」「お客様の声を整理して」「感想を分類して」「レビューをまとめて」「アンケート結果を見やすくして」といった依頼で使う。
+---
+
+# アンケート・お客様の声の整理
+
+## このスキルでできること
+
+バラバラに集まったアンケート回答や感想を、
+**満足している点・不満な点・要望・その他**に分類して一覧にします。
+
+## 使い方
+
+回答をまとめて貼り付けて、こう伝えます。
+
+```
+このアンケートを整理して
+```
+
+1件ずつでも、コピペした塊でも、表形式でもかまいません。
+
+## 手順
+
+1. 全件を読み、それぞれを4つに分類する
+2. **原文をそのまま**引用して並べる
+3. 分類ごとの件数を数える
+4. 複数の人が同じことを言っている場合は、その旨を書き添える
+
+## 最重要のルール
+
+**お客様の言葉を言い換えない。要約しない。**
+
+これが最も大切な点です。
+
+「思っていたより全然わかりやすくて、これなら続けられそうです」を
+「高評価」とまとめてしまうと、**その声はもう使えなくなります**。
+
+お客様の声は、言葉そのものが価値です。
+分類はしても、**一字一句そのまま**残してください。
+
+長い回答でも、途中を省略せずに全文を残します。
+どうしても長い場合は省略記号を使い、勝手に短くまとめないでください。
+
+## 分類の基準
+
+| 分類 | 入れるもの |
+|---|---|
+| 満足している点 | 良かった、助かった、期待以上だった、という内容 |
+| 不満な点 | わかりにくい、期待と違った、困った、という内容 |
+| 要望 | 「〜してほしい」「〜があれば」という次への希望 |
+| その他 | 上記に当てはまらないもの。質問、近況報告など |
+
+1件の回答に複数の要素が入っている場合は、**該当する分類すべてに載せて**かまいません。
+
+## 個人情報の扱い
+
+回答に次のものが含まれていたら、整理結果の最後に指摘してください。
+
+- 氏名、会社名、店舗名
+- メールアドレス、電話番号
+- 本人が特定できる具体的な状況
+
+**お客様の声を販売ページなどに掲載する場合は、本人の許可が必要です。**
+このスキルは整理をするだけで、掲載の可否は判断しません。
+
+## 出力形式
+
+```markdown
+## 全体
+回答数：◯件
+
+## 満足している点（◯件）
+- 「（原文のまま）」
+- 「（原文のまま）」
+
+## 不満な点（◯件）
+- 「（原文のまま）」
+
+## 要望（◯件）
+- 「（原文のまま）」
+
+## その他（◯件）
+- 「（原文のまま）」
+
+## 複数の方が触れていた点
+- （同じ趣旨の声が複数あった場合のみ記載）
+
+## 注意
+- （個人情報が含まれる場合はここに記載）
+```
+
+## うまく使うコツ
+
+- Googleフォームやアンケートツールからコピペしたまま渡せます
+- 「不満な点だけ抜き出して」と絞ることもできます
+- 「複数の方が触れていた点」は、次の改善の優先順位を決める材料になります
+</pre>
+        </details>
+      </article>
+      <article class="skill-item">
+        <div class="skill-head">
+          <h3 class="skill-title">問い合わせの返信を下書きする</h3>
+          <p class="skill-desc">金額や納期はわざと空欄で残すので、あいまいな約束がそのまま送られる心配がありません。</p>
+          <div class="skill-actions">
+            <button class="copy-btn" type="button" data-target="src4">コピーする</button>
+            <span class="copy-status" id="status4" role="status" aria-live="polite"></span>
+          </div>
+        </div>
+        <details class="peek">
+          <summary>中身を見る</summary>
+          <pre class="skill-src" id="src4">---
+name: inquiry-reply-draft
+description: 問い合わせメール・DM・フォームからの質問に対する返信の下書きを作る。「この問い合わせに返信して」「返信の下書き作って」「これどう返したらいい」「お客様の質問に答える文章」「メールの返事を書いて」といった依頼で使う。
+---
+
+# 問い合わせ返信の下書き
+
+## このスキルでできること
+
+届いた問い合わせを渡すと、**返信の下書き**と、
+**送信前に自分で確認すべき点**を出します。
+
+## 使い方
+
+問い合わせの文面を貼り付けて、こう伝えます。
+
+```
+これに返信の下書きを作って
+```
+
+## 手順
+
+1. 問い合わせを読み、**相手が聞いていること**を漏れなく書き出す
+2. 各項目について、答えられるか／自分で確認が必要かを分ける
+3. 答えられる部分だけで返信文を組み立てる
+4. 確認が必要な部分は `【要確認：〜】` として残す
+5. 送信前チェックリストを付ける
+
+## 最重要のルール
+
+**確定していないことを、勝手に約束しない。**
+
+返信メールは約束になります。AIが埋めた金額や納期がそのまま送られると、
+事業上の責任問題になります。
+
+次のものは、**渡された情報に書かれていない限り、絶対に書かないでください。**
+
+- 金額、料金、割引
+- 納期、対応可能な日程
+- 「できます」「対応可能です」という可否の返事
+- 在庫や空き枠の有無
+
+これらは全て `【要確認：金額】` のように空欄として残し、
+本人が埋める前提にしてください。
+
+## 返信の組み立て方
+
+1. お礼（問い合わせへの感謝）
+2. 相手の質問への回答（答えられるものだけ）
+3. 確認が必要な点についての一言（「確認のうえ改めてご連絡します」など）
+4. 締めの挨拶
+
+相手が複数のことを聞いている場合は、**聞かれた順に、漏らさず**触れてください。
+答えられない質問も「後日ご連絡します」と書き、無視しないことが大切です。
+
+## 出力形式
+
+```markdown
+## 相手が聞いていること
+1. （質問1）
+2. （質問2）
+
+## 返信の下書き
+
+（件名）
+
+（本文）
+
+## 送信前に確認すること
+- 【要確認：〜】の箇所を埋める
+- （その他、確認すべき点）
+```
+
+## 例
+
+**問い合わせ：**
+
+```
+はじめまして。個人でカフェをやっています。
+ホームページの制作をお願いしたいのですが、
+費用はどのくらいでしょうか。
+また、写真は自分で用意する必要がありますか？
+```
+
+**出力の一部：**
+
+```
+## 相手が聞いていること
+1. ホームページ制作の費用
+2. 写真を自分で用意する必要があるか
+
+## 返信の下書き
+
+件名：ホームページ制作のお問い合わせについて
+
+〇〇様
+
+はじめまして。お問い合わせいただきありがとうございます。
+
+ご費用につきましては【要確認：料金】
+
+お写真については【要確認：撮影対応の可否】
+
+ご不明な点がございましたら、お気軽にお申し付けください。
+```
+
+金額も写真の対応可否も、こちらが決めることなので埋めていません。
+
+## うまく使うコツ
+
+- 自分の料金表やサービス内容を一緒に渡すと、`【要確認】` が減ります
+- 「もう少しくだけた調子で」「もっと丁寧に」と調子を指定できます
+- **必ず自分で読んでから送ってください。** このスキルは下書きまでです
+</pre>
+        </details>
+      </article>
+      <article class="skill-item">
+        <div class="skill-head">
+          <h3 class="skill-title">商品・サービスの説明文を作る</h3>
+          <p class="skill-desc">一言・短め・詳しめの3つの長さで作ります。効果を保証するような表現は避けます。</p>
+          <div class="skill-actions">
+            <button class="copy-btn" type="button" data-target="src5">コピーする</button>
+            <span class="copy-status" id="status5" role="status" aria-live="polite"></span>
+          </div>
+        </div>
+        <details class="peek">
+          <summary>中身を見る</summary>
+          <pre class="skill-src" id="src5">---
+name: service-description
+description: 商品・サービスの説明文を作る。販売ページ、SNSプロフィール、メニュー表、名刺などに使う短い紹介文から詳しい説明まで。「サービスの説明文を書いて」「商品紹介文を作って」「メニューの説明」「プロフィールの事業内容」「うちのサービスを説明する文章」といった依頼で使う。
+---
+
+# 商品・サービスの説明文を書く
+
+## このスキルでできること
+
+商品やサービスの情報を渡すと、**長さの違う3種類の説明文**を作ります。
+
+用途によって必要な長さが違うので、まとめて用意しておくと使い回せます。
+
+| 長さ | 使う場面 |
+|---|---|
+| 一言（30字前後） | SNSプロフィール、名刺、一覧ページ |
+| 短め（100字前後） | メニュー表、投稿の冒頭、紹介文 |
+| 詳しめ（400字前後） | 販売ページ、申込ページ |
+
+## 使い方
+
+サービスの情報を書いて、こう伝えます。
+
+```
+これの説明文を作って
+```
+
+情報は箇条書きで十分です。何を提供して、誰向けで、いくらか、が分かれば作れます。
+
+## 手順
+
+1. 渡された情報から、**事実として書かれていること**だけを拾う
+2. 誰向けのものかを最初に示す構成にする
+3. 3つの長さで書き分ける
+4. 表現上の注意点があれば最後に指摘する
+
+## 最重要のルール
+
+**書かれていない事実を作らない。効果を保証しない。**
+
+説明文は広告になります。日本では広告表現に法律上の制限があり、
+書き方によっては景品表示法や薬機法に触れる可能性があります。
+
+次の表現は**使わないでください。**
+
+- 「必ず」「絶対に」「100%」「誰でも」
+- 「〜が治ります」「〜が改善します」など、効果・効能の断定
+- 「日本一」「最安」「No.1」など、根拠のない最上級表現
+- 渡された情報にない実績・人数・年数
+
+実績を書けるのは、**渡された情報に具体的な数字がある場合だけ**です。
+「多くの方に」「たくさんの」といったぼかした表現も、根拠がなければ使いません。
+
+判断に迷う表現があれば、出力の最後に「確認したほうがよい表現」として挙げてください。
+なお、このスキルは法律上の助言をするものではありません。
+医療・健康・美容・金融など規制のある分野では、専門家に確認してください。
+
+## 説明文の組み立て方
+
+1. 誰向けか
+2. 何をするものか
+3. どうなるか（事実として言える範囲で）
+4. 価格・申込方法（情報があれば）
+
+「どうなるか」は、**提供する内容の説明**として書きます。
+「痩せます」ではなく「食事記録に毎日コメントします」のように、
+こちらが何をするかで書くと、断定を避けられます。
+
+## 出力形式
+
+```markdown
+## 一言（30字前後）
+（テキスト）
+
+## 短め（100字前後）
+（テキスト）
+
+## 詳しめ（400字前後）
+（テキスト）
+
+## 確認したほうがよい表現
+- （懸念のある表現があれば指摘。なければ「特にありません」）
+```
+
+## 例
+
+**入力：**
+
+```
+・オンラインの家計簿相談
+・月1回60分、Zoom
+・家計簿のつけ方から、支出の見直しまで一緒にやる
+・月5,000円
+・主婦の方が多い
+```
+
+**出力（一言）：**
+
+```
+家計簿のつけ方から見直しまで、月1回60分ご一緒するオンライン相談です。
+```
+
+「節約できます」「貯まります」とは書いていません。
+提供する内容だけで説明しています。
+
+## うまく使うコツ
+
+- 情報が少ないほど、当たり障りのない文章になります。箇条書きを増やすほど具体的になります
+- 「もっとやわらかく」「もっと固く」と調子を指定できます
+- できあがった文章は、必ず自分の言葉に直してから使ってください。そのままだと、どこか他人事の文章になります
+</pre>
+        </details>
+      </article>
+      <article class="skill-item">
+        <div class="skill-head">
+          <h3 class="skill-title">競合を調べてメモにする</h3>
+          <p class="skill-desc">他社のページを、比較できる形に整理します。事実と推測をきちんと分けます。</p>
+          <div class="skill-actions">
+            <button class="copy-btn" type="button" data-target="src6">コピーする</button>
+            <span class="copy-status" id="status6" role="status" aria-live="polite"></span>
+          </div>
+        </div>
+        <details class="peek">
+          <summary>中身を見る</summary>
+          <pre class="skill-src" id="src6">---
+name: competitor-research-notes
+description: 競合他社の販売ページやサービス紹介を読んで、比較できる形のメモにする。「競合を調べて」「この会社のサービスをまとめて」「他社と比較して」「競合リサーチのメモを作って」「同業がどうやってるか整理して」といった依頼で使う。
+---
+
+# 競合調査メモを作る
+
+## このスキルでできること
+
+競合他社の販売ページやサービス紹介の文章を渡すと、
+**比較できる形のメモ**に整理します。
+
+複数社をまとめて渡せば、横並びの比較表になります。
+
+## 使い方
+
+ページの内容を貼り付けて、こう伝えます。
+
+```
+これを競合調査メモにして
+```
+
+複数社の場合は、社名（またはA社・B社）を付けて続けて貼ってください。
+
+## 手順
+
+1. 各社について、決まった項目を埋める
+2. **ページに書いてあること**と、**読んで感じたこと**を分けて記録する
+3. 複数社ある場合は比較表にする
+4. 気づいた点を挙げる
+
+## 最重要のルール
+
+**事実と推測を必ず分ける。**
+
+調査メモが後で判断材料になるとき、
+「ページに書いてあったこと」と「そう見えたこと」が混ざっていると使えません。
+
+- ページに明記されている → **事実**として書く
+- 書かれていないが、そう読み取れる → **推測**として書き、必ず `（推測）` と付ける
+- ページに情報がない → `記載なし` と書く。空欄にも推測にもしない
+
+例えば「価格が書かれていない」は、それ自体が重要な事実です。
+「たぶん10万円くらい」と埋めてはいけません。`記載なし` と書いてください。
+
+## 記録する項目
+
+| 項目 | 内容 |
+|---|---|
+| 誰向けか | ページが想定している相手 |
+| 提供内容 | 何をしてくれるのか |
+| 価格 | 金額と料金形態。書かれていなければ「記載なし」 |
+| 期間・回数 | 提供期間、回数、頻度 |
+| 一番押している点 | ページで最も強調されている要素 |
+| 申込までの流れ | 問い合わせ、無料相談、即申込など |
+
+## 出力形式
+
+**1社の場合：**
+
+```markdown
+## ◯◯社
+
+| 項目 | 内容 |
+|---|---|
+| 誰向けか | |
+| 提供内容 | |
+| 価格 | |
+| 期間・回数 | |
+| 一番押している点 | |
+| 申込までの流れ | |
+
+### 気づいた点
+- （事実にもとづく指摘）
+- （推測を含む場合は「（推測）」と明記）
+```
+
+**複数社の場合：** 上記の項目を列にした横並びの比較表にしたうえで、
+最後に「各社の違い」をまとめてください。
+
+## 例
+
+**気づいた点の書き方：**
+
+```
+- 価格がページ上に記載されていない（無料相談へ誘導する流れ）
+- 「初心者向け」という言葉が5回出てくる
+- 実績の数字は掲載されているが、集計期間の記載はない
+- 個人事業主より法人を狙っている可能性がある（推測。事例が法人のみのため）
+```
+
+最後の1行だけが推測で、その根拠も添えてあります。
+
+## うまく使うコツ
+
+- ページ全文をコピペして渡すのが一番正確です
+- 「価格と申込の流れだけ知りたい」と項目を絞ることもできます
+- 調べた日付を自分でメモに残しておくと、後から見返すときに役立ちます
+- 競合ページの文章をそのまま自分のページに使うのは著作権侵害になります。このメモは構造を理解するために使ってください
+</pre>
+        </details>
+      </article>
+      <article class="skill-item">
+        <div class="skill-head">
+          <h3 class="skill-title">日報・週報を作る</h3>
+          <p class="skill-desc">バラバラのメモから、結果と次の一手が入った報告書にします。</p>
+          <div class="skill-actions">
+            <button class="copy-btn" type="button" data-target="src7">コピーする</button>
+            <span class="copy-status" id="status7" role="status" aria-live="polite"></span>
+          </div>
+        </div>
+        <details class="peek">
+          <summary>中身を見る</summary>
+          <pre class="skill-src" id="src7">---
+name: weekly-report
+description: 日報・週報・月次の活動報告を作る。「週報を書いて」「日報を作って」「今週の報告をまとめて」「月次の報告書」「activity report」「今月やったことをまとめて」といった依頼で使う。
+---
+
+# 日報・週報を作る
+
+## このスキルでできること
+
+その日・その週にやったことのメモを渡すと、
+**報告書の形**に整理します。
+
+## 使い方
+
+やったことを箇条書きで書いて、こう伝えます。
+
+```
+これを週報にして
+```
+
+順不同のメモで大丈夫です。時系列に並んでいなくても整理します。
+
+## 手順
+
+1. 渡されたメモから、やったことを拾う
+2. **結果（数字）が書かれているもの**を見つけて分ける
+3. うまくいかなかったことを拾う
+4. 次にやることを整理する
+5. 決められた形式で出力する
+
+## 最重要のルール
+
+**やったことの羅列で終わらせない。そして、盛らない。**
+
+報告書が「やったことリスト」で終わると、読む人（自分を含む）が
+次に何をすべきか判断できません。必ず結果と次の一手をセットにします。
+
+同時に、次のことを守ってください。
+
+- **数字を作らない。** メモに書かれていない数値は書かない
+- **うまくいかなかったことを省かない。** メモにあれば必ず載せる
+- **成果を大きく見せる言い換えをしない。**
+  「3件問い合わせ」を「複数の反響」と書き換えない
+
+うまくいかなかったことが載っていない報告書は、
+翌週も同じ失敗を繰り返す原因になります。
+
+## 出力形式
+
+```markdown
+# ◯月◯日〜◯月◯日 週報
+
+## やったこと
+- （実施した内容）
+
+## 結果
+- （数字で言えるもの。メモにある範囲で）
+
+## うまくいかなかったこと
+- （つまずいた点、進まなかったこと）
+
+## 次にやること
+- （次の期間に着手すること）
+
+## 相談したいこと
+- （判断が必要な点。なければ省略）
+```
+
+日報の場合は見出しを「◯月◯日 日報」に変え、内容は同じ構成にしてください。
+
+## 例
+
+**入力されたメモ：**
+
+```
+月 インスタ投稿3本
+火 問い合わせ2件、うち1件は返信まだ
+水 新メニューの説明文を書いた、まだ公開してない
+木 打ち合わせ1件（来月から開始で合意）
+金 経理まとめようとしたけど手つかず
+```
+
+**出力：**
+
+```markdown
+# 週報
+
+## やったこと
+- Instagram投稿 3本
+- 新メニューの説明文を作成（未公開）
+- 打ち合わせ 1件
+
+## 結果
+- 問い合わせ 2件
+- 打ち合わせ1件が来月開始で合意
+
+## うまくいかなかったこと
+- 問い合わせ1件が未返信のまま
+- 新メニューの説明文が未公開
+- 経理の整理に着手できなかった
+
+## 次にやること
+- 未返信の問い合わせに返信する
+- 新メニューを公開する
+- 経理の整理に着手する
+```
+
+「経理が手つかず」を省かず、そのまま「次にやること」に送っている点が大切です。
+
+## うまく使うコツ
+
+- 毎日メモを1行残しておくと、週末に貼り付けるだけで週報になります
+- 提出先がある場合は「上司に出す形で」と伝えると、調子が変わります
+- 「相談したいこと」は、自分ひとりで事業をしている場合でも書いておくと、後で判断を思い出せます
+</pre>
+        </details>
+      </article>
+    </div>
+
+    <div class="note">
+      <span class="note-label">ご注意</span>
+      <p><strong>一度に貼り付けるのは1つだけにしてください。</strong>いくつも貼ると指示が混ざって、うまく動かなくなります。</p>
+      <p>別のことをしたくなったら、新しい会話を開いて貼り直してください。</p>
+    </div>
+  </section>
+
+  <section id="try">
+    <h2 class="section">やってみましょう</h2>
+    <p>「打ち合わせメモを整理する」を例に、実際の流れを見てみます。</p>
+
+    <div class="example">
+      <div class="example-block">
+        <div class="example-head">自分が貼ったメモ</div>
+        <div class="example-body">
+          <ul>
+            <li>田中さんとの打ち合わせ</li>
+            <li>新サイトの公開は来月アタマで合意</li>
+            <li>トップの写真、差し替えたいと言われた→誰が用意する？</li>
+            <li>料金プラン、3つに増やす案が出たけど保留</li>
+            <li>請求書の宛名、法人名でいいか要確認</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="example-block">
+        <div class="example-head">返ってきたもの</div>
+        <div class="example-body">
+          <div class="out-group">
+            <h5>決まったこと</h5>
+            <ul><li>新サイトの公開時期は来月頭とする</li></ul>
+          </div>
+          <div class="out-group">
+            <h5>やること</h5>
+            <ul><li>トップページの写真を差し替える（担当：未定／期限：未定）</li></ul>
+          </div>
+          <div class="out-group">
+            <h5>保留・次回持ち越し</h5>
+            <ul><li>料金プランを3つに増やす案</li></ul>
+          </div>
+          <div class="out-group">
+            <h5>確認が必要なこと</h5>
+            <ul>
+              <li>トップ写真の素材を用意するのはどちらか</li>
+              <li>請求書の宛名を法人名にしてよいか</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <p>
+      写真の担当者は、メモに書かれていないので<strong>「未定」</strong>と出ます。
+      AIが勝手に「田中さんが用意する」と決めないように作ってあります。
+    </p>
+    <p>
+      議事録は後から「言った・言わない」の証拠になる書類です。
+      それらしく埋まってしまうと、書類として使えなくなるためです。
+    </p>
+  </section>
+
+  <section id="register">
+    <h2 class="section">毎回貼るのが面倒になったら</h2>
+    <p>
+      気に入って何度も使うようになったら、AIに覚えさせておくこともできます。
+      一度登録すれば、貼り付けなしで使えます。
+    </p>
+
+    <h3>ChatGPTの場合</h3>
+    <ol class="steps">
+      <li><div><h4>スキルの画面を開く</h4><p>左側のメニューから「スキル（Skills）」を開きます。</p></div></li>
+      <li><div><h4>新しく追加する</h4><p>「新規作成」または「＋」を押して、コピーした中身をそのまま貼り付けて保存します。</p></div></li>
+      <li><div><h4>あとは話しかけるだけ</h4><p>「このメモ整理して」と伝えて、メモを貼れば動きます。</p></div></li>
+    </ol>
+
+    <div class="note">
+      <span class="note-label">ご注意</span>
+      <p><strong>パソコン版とスマホ版は、別々に登録が必要です。</strong>自動では同期されないため、両方でお使いの場合はそれぞれ登録してください。</p>
+    </div>
+
+    <h3>Claude（ブラウザ版）の場合</h3>
+    <p>
+      「プロジェクト」を作って、その説明欄に貼り付けて保存してください。
+      以降、そのプロジェクトの中では貼り付けなしで使えます。
+    </p>
+
+    <p class="aside-note">
+      スキルの画面が見当たらない場合もあります。その場合は、これまでどおり貼り付けてお使いください。動作に違いはありません。
+    </p>
+  </section>
+
+  <section id="advanced">
+    <h2 class="section">パソコンに詳しい方へ</h2>
+    <p>
+      ターミナルをお使いになる方は、Claude Code や Codex にまとめて入れられます。
+      入れておくと、話しかけるだけで自動的に適切なものが選ばれます。
+    </p>
+
+    <h3>Claude Code に7つまとめて入れる</h3>
+    <div class="cmd">npx skills add create-aquarius/business-skills-ja -a claude-code</div>
+
+    <h3>Codex に入れる</h3>
+    <div class="cmd">npx skills add create-aquarius/business-skills-ja -a codex</div>
+
+    <p>
+      ソースコードは GitHub で公開しています。中身の確認、書き換え、再配布は自由です。
+    </p>
+  </section>
+
+  <section id="faq">
+    <h2 class="section">よくある質問</h2>
+    <div class="faq">
+      <details>
+        <summary>無料のChatGPTでも使えますか</summary>
+        <div class="answer"><p>使えます。貼り付けて使う方法なら、プランは問いません。</p></div>
+      </details>
+      <details>
+        <summary>コピーボタンを押しても反応がないようです</summary>
+        <div class="answer"><p>「中身を見る」を開いて、表示された文章を手で全部選択してコピーしてください。同じものが使えます。</p></div>
+      </details>
+      <details>
+        <summary>7つ全部を一度に貼り付けてもいいですか</summary>
+        <div class="answer"><p>おすすめしません。指示が混ざって精度が落ちます。<strong>1つの会話につき1つ</strong>にしてください。</p></div>
+      </details>
+      <details>
+        <summary>出てきた文章はそのまま使っていいですか</summary>
+        <div class="answer">
+          <p><strong>必ずご自身で確認してから</strong>お使いください。特に、お客様に送るメールや、販売ページの文章は必ず読み返してください。</p>
+          <p>問い合わせ返信のスキルは、金額や納期を<strong>わざと空欄</strong>にして「【要確認：金額】」と出すように作ってあります。そこはご自身で埋めてから送ってください。</p>
+        </div>
+      </details>
+      <details>
+        <summary>自分用に書き換えてもいいですか</summary>
+        <div class="answer"><p>はい。自由に書き換えてお使いください。自社の料金表やサービス内容を書き足すと、精度が上がります。</p></div>
+      </details>
+    </div>
+  </section>
+
+  <section id="trouble">
+    <h2 class="section">うまくいかないときは</h2>
+
+    <h3>思ったような形で出てこない</h3>
+    <p>貼り付けた文章が、途中で切れていないか確認してください。いちばん上の線で囲まれた部分から、いちばん下まで全部が必要です。</p>
+
+    <h3>別のことをされてしまう</h3>
+    <p>新しい会話を開いて、もう一度貼り付けてください。同じ会話で長く続けると、前の話に引っ張られることがあります。</p>
+
+    <h3>途中から言うことを聞かなくなった</h3>
+    <p>会話が長くなると起こります。新しい会話を開いて、貼り直してください。</p>
+  </section>
+
+  <div class="colophon">
+    <span>はじめてのAIスキル集</span>
+    <span>MIT License</span>
+  </div>
+
+</div>
+
+<script>
+  document.querySelectorAll(".copy-btn").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      var pre = document.getElementById(btn.dataset.target);
+      var status = document.getElementById(btn.dataset.target.replace("src", "status"));
+      var text = pre.textContent;
+
+      function done() {
+        btn.dataset.done = "1";
+        btn.textContent = "コピーしました";
+        if (status) { status.textContent = "ChatGPTに貼り付けてください"; }
+        setTimeout(function () {
+          btn.textContent = "コピーする";
+          btn.removeAttribute("data-done");
+          if (status) { status.textContent = ""; }
+        }, 6000);
+      }
+
+      function fallback() {
+        var ta = document.createElement("textarea");
+        ta.value = text;
+        ta.style.position = "fixed";
+        ta.style.opacity = "0";
+        document.body.appendChild(ta);
+        ta.select();
+        var ok = false;
+        try { ok = document.execCommand("copy"); } catch (e) { ok = false; }
+        document.body.removeChild(ta);
+        if (ok) {
+          done();
+        } else {
+          var peek = btn.closest(".skill-item").querySelector(".peek");
+          if (peek) { peek.open = true; }
+          if (status) { status.textContent = "「中身を見る」から手でコピーしてください"; }
+        }
+      }
+
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(done, fallback);
+      } else {
+        fallback();
+      }
+    });
+  });
+</script>
+</body>
+</html>

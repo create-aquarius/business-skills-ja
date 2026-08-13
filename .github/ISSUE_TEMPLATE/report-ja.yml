@@ -1,0 +1,66 @@
+name: うまく動かなかった（日本語）
+description: 思ったように動かなかったときの報告フォームです
+labels: ["report"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **専門的な書き方は必要ありません。**
+
+        エンジニアでない方からのご報告が、このプロジェクトにとって
+        いちばん役に立ちます。わかる範囲でご記入ください。
+        空欄のままの項目があっても構いません。
+
+  - type: dropdown
+    id: skill
+    attributes:
+      label: どのスキルですか
+      options:
+        - meeting-notes-to-actions（打ち合わせメモの整理）
+        - content-repurposing（SNS・メルマガへの転用）
+        - feedback-organizer（アンケート・お客様の声の整理）
+        - inquiry-reply-draft（問い合わせ返信の下書き）
+        - service-description（商品・サービスの説明文）
+        - competitor-research-notes（競合調査メモ）
+        - weekly-report（日報・週報）
+        - わからない／その他
+    validations:
+      required: true
+
+  - type: dropdown
+    id: tool
+    attributes:
+      label: 何でお使いですか
+      options:
+        - ChatGPT
+        - Claude（ブラウザ版）
+        - Claude Code
+        - Codex
+        - その他
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: どうなってほしかったですか
+      placeholder: 例：打ち合わせメモを整理して、やることリストが出てほしかった
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: 実際はどうなりましたか
+      placeholder: 例：関係のない要約が出てきた／何も起きなかった
+    validations:
+      required: true
+
+  - type: textarea
+    id: input
+    attributes:
+      label: 貼り付けた文章（差し支えなければ）
+      description: |
+        お客様の名前や会社名などが含まれる場合は、
+        伏せ字にするか、この欄を空欄のままにしてください。
+      placeholder: 個人情報は消してから貼ってください
