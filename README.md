@@ -38,7 +38,7 @@ observer.
 |---|---|
 | `meeting-notes-to-actions` | Turns meeting notes or transcripts into decisions, action items, and open questions |
 | `content-repurposing` | Rewrites a long article into posts for X, Instagram/Facebook, and a newsletter |
-| `feedback-organizer` | Sorts survey responses and customer feedback, preserving every response verbatim |
+| `feedback-organizer` | Sorts survey responses and customer feedback, preserving the wording while redacting sensitive values |
 | `inquiry-reply-draft` | Drafts a reply to an inbound enquiry, leaving anything unconfirmed blank |
 | `service-description` | Writes product descriptions at three lengths, avoiding regulated advertising claims |
 | `competitor-research-notes` | Turns competitor pages into comparable notes, separating fact from inference |

@@ -18,7 +18,7 @@
 |---|---|
 | meeting-notes-to-actions | 打ち合わせメモを、決定事項・やること・保留・要確認に整理する |
 | content-repurposing | 長い記事を、X・Instagram・メルマガ向けに書き分ける |
-| feedback-organizer | アンケートやお客様の声を、原文のまま分類して一覧にする |
+| feedback-organizer | アンケートやお客様の声を、機密情報を伏せて原文のまま分類する |
 | inquiry-reply-draft | 問い合わせへの返信を下書きする |
 | service-description | 商品・サービスの説明文を3つの長さで作る |
 | competitor-research-notes | 競合ページを比較できるメモにする |
