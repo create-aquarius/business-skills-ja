@@ -46,8 +46,16 @@ observer.
 
 ## Install
 
+macOS / Linux:
+
 ```bash
 npx skills add create-aquarius/business-skills-ja --skill meeting-notes-to-actions -a claude-code
+```
+
+Windows PowerShell:
+
+```powershell
+npx.cmd skills add create-aquarius/business-skills-ja --skill meeting-notes-to-actions -a claude-code
 ```
 
 Replace `-a claude-code` with `-a codex` for Codex.

@@ -46,21 +46,27 @@ ChatGPTには「スキル」を登録しておく機能があります。
 
 ### 手順
 
-**1. ファイルをダウンロードする**
+**1. 使いたいスキルをコピーする**
 
-配布ページから、使いたいスキルの `SKILL.md` ファイルを保存します。
+配布ページで、使いたいスキルの「コピーする」を押します。
 
 **2. ChatGPTのスキル画面を開く**
 
-左側のメニューから「スキル（Skills）」を開きます。
+左側のメニューから「プラグイン」を開き、
+画面上部の「スキル」を選びます。
 
-**3. 追加する**
+**3. チャットで作成する**
 
-「新規作成」または「＋」から追加します。
-**パソコンからファイルをアップロードする**方法と、
-**エディタに直接貼り付ける**方法のどちらでも登録できます。
+「作成」から「チャットで作成」を選びます。
+開いたチャットに、コピーしたスキルの中身を貼り付け、続けて次のように伝えてください。
 
-ファイルをアップロードする場合は、保存した `SKILL.md` をそのまま選んでください。
+```
+この内容を変えずにスキルとして作成してください。
+書かれていない内容は足さないでください。
+```
+
+画面の案内に従って内容を確認し、作成します。
+複数のスキルを登録するときも、1つずつ行ってください。
 
 **4. 使ってみる**
 
@@ -72,14 +78,10 @@ ChatGPTには「スキル」を登録しておく機能があります。
 
 と伝えて、続けてメモを貼り付ければ動きます。
 
-### 注意
-
-**パソコン版とスマホ版は別々に登録が必要です。**
-自動では同期されないため、両方でお使いの場合はそれぞれ登録してください。
-
 ### スキル機能が見当たらない場合
 
 ご利用のプランや時期によっては、スキル画面が表示されないことがあります。
+画面の名称や場所が変わる場合もあります。
 その場合は、貼り付けて使ってください。動作に違いはありません。
 
 1. `SKILL.md` の中身を、上から下まですべてコピーする
@@ -103,16 +105,30 @@ ChatGPTとまったく同じです。
 
 ### まとめて7つ入れる
 
-ターミナルで次のコマンドを実行してください。
+Mac・Linuxのターミナル：
 
 ```
 npx skills add create-aquarius/business-skills-ja -a claude-code
 ```
 
+Windows PowerShell：
+
+```
+npx.cmd skills add create-aquarius/business-skills-ja -a claude-code
+```
+
 ### 1つだけ入れる
+
+Mac・Linux：
 
 ```
 npx skills add create-aquarius/business-skills-ja --skill meeting-notes-to-actions -a claude-code
+```
+
+Windows PowerShell：
+
+```
+npx.cmd skills add create-aquarius/business-skills-ja --skill meeting-notes-to-actions -a claude-code
 ```
 
 ### 使いかた
@@ -130,10 +146,16 @@ npx skills add create-aquarius/business-skills-ja --skill meeting-notes-to-actio
 
 ## 方法4：Codex で使う
 
-Claude Codeと同じコマンドで、末尾だけ変えます。
+Mac・Linux：
 
 ```
 npx skills add create-aquarius/business-skills-ja -a codex
+```
+
+Windows PowerShell：
+
+```
+npx.cmd skills add create-aquarius/business-skills-ja -a codex
 ```
 
 ---
@@ -223,6 +245,20 @@ npx skills add create-aquarius/business-skills-ja -a codex
 
 「このメモ整理して」のように、やってほしいことを短く伝えてください。
 ファイル名で呼び出す必要はありません。
+
+**Windows PowerShellで「running scripts is disabled」と表示される**
+
+`npx`の代わりに`npx.cmd`を使ってください。Windowsの実行ポリシーを変更する必要はありません。
+
+**「UNABLE_TO_VERIFY_LEAF_SIGNATURE」と表示される**
+
+このエラーはSkillではなく、Node.jsが端末の証明書を参照できていないときに出ます。
+Windows PowerShellで次の2行を実行してから、もう一度お試しください。
+
+```powershell
+$env:NODE_OPTIONS='--use-system-ca'
+npx.cmd skills add create-aquarius/business-skills-ja -a codex
+```
 
 ---
 

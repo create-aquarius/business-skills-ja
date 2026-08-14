@@ -31,10 +31,16 @@ AIに「この仕事はこうやって進めてね」と手順を覚えさせて
 
 ## 入れかた
 
-ターミナルで次のコマンドを実行します。
+Mac・Linuxのターミナルでは、次のコマンドを実行します。
 
 ```bash
 npx skills add create-aquarius/business-skills-ja --skill meeting-notes-to-actions -a claude-code
+```
+
+Windows PowerShellでは、`npx`ではなく`npx.cmd`を使います。
+
+```powershell
+npx.cmd skills add create-aquarius/business-skills-ja --skill meeting-notes-to-actions -a claude-code
 ```
 
 Codex をお使いの場合は、末尾を `-a codex` に変えてください。
@@ -68,8 +74,16 @@ Codex をお使いの場合は、末尾を `-a codex` に変えてください�
 
 1つずつではなく、7本まとめて入れることもできます。
 
+Mac・Linux：
+
 ```bash
 npx skills add create-aquarius/business-skills-ja -a claude-code
+```
+
+Windows PowerShell：
+
+```powershell
+npx.cmd skills add create-aquarius/business-skills-ja -a claude-code
 ```
 
 ## 今後について
