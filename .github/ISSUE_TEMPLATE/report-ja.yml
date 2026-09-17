@@ -23,6 +23,8 @@ body:
         - service-description（商品・サービスの説明文）
         - competitor-research-notes（競合調査メモ）
         - weekly-report（日報・週報）
+        - lp-claim-audit（LPの根拠点検）
+        - feedback-to-repro（不具合報告の整理）
         - わからない／その他
     validations:
       required: true

@@ -20,6 +20,8 @@ body:
         - service-description
         - competitor-research-notes
         - weekly-report
+        - lp-claim-audit
+        - feedback-to-repro
         - Not sure / other
     validations:
       required: true

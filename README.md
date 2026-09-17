@@ -34,6 +34,8 @@ observer.
 
 ## Skills
 
+**New, experimental:** [LP Claim Audit and Feedback to Repro](docs/two-review-skills.md) — two focused review skills with English/Japanese inputs, worked examples, and reusable evaluation cases. Each is independently installable and stays a single file.
+
 | Skill | What it does |
 |---|---|
 | `meeting-notes-to-actions` | Turns meeting notes or transcripts into decisions, action items, and open questions |
@@ -43,6 +45,8 @@ observer.
 | `service-description` | Writes product descriptions at three lengths, avoiding regulated advertising claims |
 | `competitor-research-notes` | Turns competitor pages into comparable notes, separating fact from inference |
 | `weekly-report` | Turns scattered notes into a report with results, setbacks, and next steps |
+| [`lp-claim-audit`](skills/lp-claim-audit/SKILL.md) | Compares LP claims with supplied evidence; flags unsupported promises and conflicting pricing conditions |
+| [`feedback-to-repro`](skills/feedback-to-repro/SKILL.md) | Turns bug reports into sanitized issue drafts without inventing reproduction steps or root causes |
 
 ## Install
 
@@ -79,7 +83,7 @@ These skills are used for real business documents, so they follow a few strict r
 
 ## Roadmap
 
-v0.1 ships the seven skills above. The next version will be driven by what
+The original release shipped seven skills. Two experimental review skills now extend the collection to nine; see their [examples and evaluation limits](docs/two-review-skills.md). Future improvements will be driven by what
 actually breaks for real users rather than by a feature list, so the priority
 is collecting feedback from non-developers using these on real work.
 
